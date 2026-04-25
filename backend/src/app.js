@@ -12,7 +12,9 @@ dns.setServers(["1.1.1.1", "1.0.0.1"]);
 
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: 'https://rgitx.vercel.app/'
+}));
 app.use(express.json());
 connectDB();
 
