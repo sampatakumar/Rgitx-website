@@ -14,7 +14,7 @@ router.get('/programs/semester/:semester/:subjectName', programController.getPro
 
 // ─── Admin Protected Routes ───────────────────────────────────────────────────
 router.get('/admin/dashboard', adminMiddleware, programController.getAllPrograms)
-router.post('/admin/upload/programs',  programController.uploadPrograms)
+router.post('/admin/upload/programs', adminMiddleware, programController.uploadPrograms)
 router.put('/admin/edit/program/:id', adminMiddleware, programController.editProgram)
 router.delete('/admin/delete/program/:id', adminMiddleware, programController.deleteProgram)
 

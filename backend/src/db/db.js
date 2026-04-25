@@ -2,7 +2,7 @@
 // initializing MongoDB
 
 const mongoose = require('mongoose')
-const MongoDB = process.env.Mongo_URI
+const MongoDB = process.env.MONGO_URI
 function connectDB(){
     mongoose.connect(`${MongoDB}`)
     .then(() => {
