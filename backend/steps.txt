@@ -1,0 +1,7 @@
+admin => upload programs , manage programs
+upload programs --> title, sem, sub name, programs
+manage programs --> admin can manage programs like editing , admin can delete etc
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+user --> choose sem --> sub name --> programs , able to copy programs
