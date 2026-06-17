@@ -1,5 +1,5 @@
 // src/App.jsx
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import './styles/global.css'
 import Header from './components/Header'
 import SemesterGrid from './components/SemesterGrid'
@@ -34,6 +34,13 @@ export default function App() {
     const id = Date.now()
     setToasts(prev => [...prev, { id, message, type }])
     setTimeout(() => setToasts(prev => prev.filter(t => t.id !== id)), 3200)
+  }, [])
+
+  // ─── Wake up Backend (Render free tier cold start) ────────────────
+  useEffect(() => {
+    const BASE = import.meta.env.VITE_API_BASE || 'http://localhost:3000/api'
+    const WAKE_URL = BASE.replace('/api', '') // e.g., http://localhost:3000
+    fetch(WAKE_URL).catch(() => {})
   }, [])
 
   // ─── Select Semester ──────────────────────────────────────────────
